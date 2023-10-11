@@ -12,7 +12,7 @@ redirect_from:
 Education
 ======
 * B.S. in Engineering, Tianjin University of Technology, 2020
-* M.S. in Science of Informatics, University of Tsukuba, 2024 ((Expected graduation))
+* M.S. in Science of Informatics, University of Tsukuba, 2024 (Expected graduation)
 
 Language Skills
 ======
