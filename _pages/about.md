@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: ""David 's Computational Learning Hub""
+title: "David 's Computational Learning Hub"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
