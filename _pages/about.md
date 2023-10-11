@@ -14,7 +14,7 @@ When it comes to research, my curiosity veers towards Emotion Analysis, Hierarch
 
 This platform serves as a repository of my learning and explorations. Through this page, I am keen on documenting and disseminating the knowledge I accrue over time, fostering a space of learning and collaborative intellectual growth.
 
-Please feel free to share your opinions and make progress together.
+Please feel free to share your opinions and make progress together. t
 
 ---
 
