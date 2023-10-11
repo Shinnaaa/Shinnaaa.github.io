@@ -20,6 +20,13 @@ Language Skills
 * English (business level)
 * Japanese (Daily conversation level)
 
+Programming Skills
+======
+* Python
+* Pytorch
+* Scikit-learn
+* etc.
+
 Certificates
 ======
 
