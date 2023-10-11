@@ -15,7 +15,7 @@ When it comes to research, my curiosity veers toward Emotion Analysis, Hierarchi
 
 This platform serves as a repository of my learning and explorations. Through this page, I am keen on documenting and disseminating the knowledge I accrue over time, fostering a space of learning and collaborative intellectual growth.
 
-Feel free to delve into my academic journey and share the quest for knowledge.
+Feel free to delve into my academic journey and share the quest for knowledge.a
 
 
 A data-driven personal website
