@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: ""David 's Computational Learning Hub""
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,7 +8,15 @@ redirect_from:
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
+
+Hello! I am currently navigating through the second year of my graduate studies in [the Master's Programs in Informatics](https://informatics.tsukuba.ac.jp/en/), nestled within the Graduate School of Comprehensive Human Sciences at the [University of Tsukuba, Japan](https://www.tsukuba.ac.jp/). My academic quests are primarily anchored in the realms of Natural Language Processing and Information Retrieval, under the nurturing guidance of [Professor Haitao Yu](https://ii-research-yu.github.io/), in the innovative environment of the [II Lab](https://ii-research.github.io/).
+
+When it comes to research, my curiosity veers toward Emotion Analysis, Hierarchical Classification, and the broad expanse of Machine Learning. Every discovery and understanding in these fields not only fuels my academic voyage but also finds a mention on this page.
+
+This platform serves as a repository of my learning and explorations. Through this page, I am keen on documenting and disseminating the knowledge I accrue over time, fostering a space of learning and collaborative intellectual growth.
+
+Feel free to delve into my academic journey and share the quest for knowledge.
+
 
 A data-driven personal website
 ======
