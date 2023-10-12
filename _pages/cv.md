@@ -29,20 +29,15 @@ Programming Skills
 
 Certificates
 ======
-
+* TBA
   
 Internship Experience
 ======
-* Summer 2022: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Summer 2022: TBA
+  * TBA
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+* Summer 2022: TBA
+  * TBA
   
 Campus Experience
 ======
