@@ -16,8 +16,8 @@ Education
 
 Language Skills
 ======
-* Mandarin Chinese (native speaker's level)
-* English (business level)
+* Mandarin Chinese (Native speaker's level)
+* English (Business level)
 * Japanese (Daily conversation level)
 
 Programming Skills
