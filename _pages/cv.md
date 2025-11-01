@@ -18,7 +18,7 @@ Language Skills
 ======
 * Mandarin Chinese (Native speaker's level)
 * English (Business level)
-* Japanese (Daily conversation level)
+* Japanese (Business level)
 
 Programming Skills
 ======
@@ -29,15 +29,8 @@ Programming Skills
 
 Certificates
 ======
-* TBA
-  
-Internship Experience
-======
-* Summer 2022: TBA
-  * TBA
-
-* Summer 2022: TBA
-  * TBA
+* AWS Certified Solutions Architect - Associate
+* Fundamental Information Technology Engineer Examination
   
 Campus Experience
 ======
