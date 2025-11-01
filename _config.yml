@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "David's Blog"
+title                    : "Dawei Li - AI Researcher"
 title_separator          : "-"
-name                     : &name "David Li"
-description              : &description "personal Blog"
+name                     : &name "Dawei Li"
+description              : &description "Graduate student in NLP & Information Retrieval at University of Tsukuba. Research interests: Emotion Analysis, Hierarchical Classification, Machine Learning."
 url                      : https://Shinnaaa.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "Shinnaaa/Shinnaaa.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -80,11 +80,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "李　大為　David　Li"
+  name             : "Dawei Li (李大為)"
   avatar           : "Profile.png"
-  bio              : "Personal Blog for study"
-  location         : "Tokyo, Japan"
-  employer         :
+  bio              : "Graduate student in NLP & Information Retrieval | Research: Emotion Analysis, Hierarchical Classification | University of Tsukuba"
+  location         : "Tsukuba, Ibaraki, Japan"
+  employer         : "University of Tsukuba"
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
   email            : 
@@ -255,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Tokyo # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
