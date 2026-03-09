@@ -1,0 +1,63 @@
+/* ==========================================================================
+   LANGUAGE SWITCHER
+   ========================================================================== */
+
+/* ── Switcher bar ────────────────────────────────────────────────────────── */
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-left: 1.2em;
+  vertical-align: middle;
+}
+
+.lang-btn {
+  padding: 1px 9px;
+  font-size: $type-size-8;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  background: transparent;
+  color: $gray;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  line-height: 1.8;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &--active {
+    background: $primary-color;
+    color: #fff;
+    border-color: $primary-color;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+/* ── Hidden state for lang-blocks ────────────────────────────────────────── */
+
+[hidden] { display: none !important; }
+
+/* ── Fade-in animation on language switch ────────────────────────────────── */
+
+.lang-block {
+  animation: lang-fade-in 0.25s ease both;
+}
+
+@keyframes lang-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
