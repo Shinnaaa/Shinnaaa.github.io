@@ -15,15 +15,7 @@
   }
 
   a {
-    text-decoration: underline;
-
-    &:hover {
-      text-decoration: underline;
-
-      img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
-      }
-    }
+    text-decoration: none;
   }
 }
 
@@ -39,48 +31,129 @@
   }
 }
 
+/* ── Card base ─────────────────────────────────────────────────────────── */
+
+.archive__item {
+  padding: 1.25em 1.5em;
+  margin-bottom: 0.75em;
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: mix(#fff, $primary-color, 55%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+
+    .archive__item-title a {
+      color: $primary-color;
+    }
+  }
+}
+
 .archive__item-title {
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 0.3em;
   font-family: $sans-serif-narrow;
+  font-size: $type-size-4;
+  line-height: 1.3;
+
+  a {
+    color: $text-color;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
 
   a + a {
     opacity: 0.5;
   }
 }
 
-/* remove border*/
+/* remove border inside page content */
 .page__content {
-
   .archive__item-title {
     margin-top: 1em;
     border-bottom: none;
   }
 }
 
+/* ── Meta line (date · read time) ──────────────────────────────────────── */
+
+.archive__item-meta {
+  font-size: $type-size-7;
+  color: $gray;
+  margin-bottom: 0.6em;
+  line-height: 1.4;
+
+  span {
+    margin-right: 0.25em;
+  }
+}
+
+/* ── Excerpt (truncated, 3 lines max) ──────────────────────────────────── */
+
 .archive__item-excerpt {
   margin-top: 0;
+  margin-bottom: 0.75em;
   font-size: $type-size-6;
+  color: mix(#000, $gray, 25%);
+  line-height: 1.65;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 
   & + p {
     text-indent: 0;
   }
 }
 
-.archive__item-teaser {
-  border-radius: $border-radius;
-  overflow: hidden;
-  img {
-    width: 100%;
-  }
+/* ── Tag badges ─────────────────────────────────────────────────────────── */
+
+.archive__item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: 0.5em;
 }
 
-.archive__item:hover {
-  .archive__item-teaser {
-    box-shadow: 0 0 10px rgba(#000, 0.25);
-  }
+.archive__tag-badge {
+  display: inline-block;
+  padding: 2px 9px;
+  font-size: $type-size-8;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: $primary-color;
+  background: mix(#fff, $primary-color, 92%);
+  border: 1px solid mix(#fff, $primary-color, 72%);
+  border-radius: 20px;
+  line-height: 1.6;
+}
 
-  .archive__item-title {
-    text-decoration: underline;
+/* ── Citation line ──────────────────────────────────────────────────────── */
+
+.archive__item-citation {
+  margin-top: 0.5em;
+  font-size: $type-size-7;
+  color: $gray;
+}
+
+/* ── Teaser image ───────────────────────────────────────────────────────── */
+
+.archive__item-teaser {
+  border-radius: $border-radius $border-radius 0 0;
+  overflow: hidden;
+  margin: -1.25em -1.5em 1em;
+
+  img {
+    width: 100%;
+    display: block;
   }
 }
 
@@ -136,8 +209,8 @@
   }
 
   @include breakpoint($medium) {
-    margin-left: 0; /* reset before mixin does its thing*/
-    margin-right: 0; /* reset before mixin does its thing*/
+    margin-left: 0;
+    margin-right: 0;
     @include gallery(2.5 of 10);
 
     .archive__item-teaser {
