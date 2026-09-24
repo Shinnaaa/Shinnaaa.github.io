@@ -175,6 +175,7 @@
 .greedy-nav {
   position: relative;
   min-width: 250px;
+  min-height: 2.5rem;  // on phones every link moves to the dropdown; keep the menu button from collapsing to 0px
   background: $background-color;
 
   a {

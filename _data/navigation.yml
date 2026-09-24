@@ -1,13 +1,21 @@
 # main links links
 main:
   - title: "Publications"
+    title_zh: "论文"
+    title_ja: "論文"
     url: /publications/  
     
   - title: "Portfolio"
-    url: /portfolio/
+    title_zh: "作品集"
+    title_ja: "ポートフォリオ"
+    url: /projects/
         
   - title: "Blog Posts"
+    title_zh: "博客"
+    title_ja: "ブログ"
     url: /year-archive/
     
   - title: "CV"
+    title_zh: "简历"
+    title_ja: "経歴"
     url: /cv/

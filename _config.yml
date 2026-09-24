@@ -96,7 +96,7 @@ author:
   flickr           :
   #facebook         :
   foursquare       :
-  github           : "https://github.com/Shinnaaa"
+  github           : "Shinnaaa"
   google_plus      :
   keybase          :
   instagram        :
@@ -183,7 +183,7 @@ collections:
     permalink: /:collection/:path/
   portfolio:
     output: true
-    permalink: /:collection/:path/
+    permalink: /projects/:path/  # /portfolio/ is taken by the Shinnaaa/portfolio project site
   talks:
     output: true
     permalink: /:collection/:path/

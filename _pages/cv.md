@@ -1,6 +1,8 @@
 ---
 layout: archive
 title: "CV"
+title_zh: "简历"
+title_ja: "経歴"
 permalink: /cv/
 author_profile: true
 redirect_from:

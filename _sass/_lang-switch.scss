@@ -1,53 +1,88 @@
 /* ==========================================================================
    LANGUAGE SWITCHER
+   The active language is <html data-lang="zh|en|ja">, set in _includes/head.html
+   before first paint. Everything below keys off that attribute, so the page
+   renders in the right language with no JS-driven flash.
    ========================================================================== */
 
-/* ── Switcher bar ────────────────────────────────────────────────────────── */
+/* ── Segmented control in the masthead ──────────────────────────────────── */
+
+/* Keep the switcher on the nav's row; the greedy nav takes the remaining width. */
+.masthead__menu {
+  display: flex;
+  align-items: center;
+
+  .greedy-nav {
+    flex: 1 1 auto;
+  }
+}
+
+/* Translated labels ("フォロー", "关注") must not wrap letter by letter. */
+.author__urls-wrapper .btn {
+  white-space: nowrap;
+}
 
 .lang-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
   margin-left: 1.2em;
+  padding: 2px;
   vertical-align: middle;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  background: rgba($border-color, 0.25);
 }
 
 .lang-btn {
-  padding: 1px 9px;
+  min-width: 2.4em;
+  padding: 0 0.7em;
   font-size: $type-size-8;
   font-weight: 600;
   letter-spacing: 0.3px;
-  border: 1px solid $border-color;
-  border-radius: 20px;
+  line-height: 1.9;
+  border: 0;
+  border-radius: 999px;
   background: transparent;
   color: $gray;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  line-height: 1.8;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    border-color: $primary-color;
     color: $primary-color;
   }
 
-  &--active {
-    background: $primary-color;
-    color: #fff;
-    border-color: $primary-color;
-
-    &:hover {
-      color: #fff;
-    }
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 1px;
   }
 }
 
-/* ── Hidden state for lang-blocks ────────────────────────────────────────── */
+html:not([data-lang="en"]):not([data-lang="ja"]) .lang-btn[data-lang="zh"],
+html[data-lang="en"] .lang-btn[data-lang="en"],
+html[data-lang="ja"] .lang-btn[data-lang="ja"] {
+  background: $primary-color;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  cursor: default;
+}
 
-[hidden] { display: none !important; }
+/* ── Showing the active language ────────────────────────────────────────── */
 
-/* ── Fade-in animation on language switch ────────────────────────────────── */
+[hidden]:not(.lang-block) { display: none !important; }
 
-.lang-block {
+/* Posts ship non-Chinese blocks with `hidden` as a no-JS fallback;
+   once data-lang is set, CSS takes over. */
+html[data-lang] div.lang-block[hidden] { display: block; }
+
+html:not([data-lang="en"]):not([data-lang="ja"]) .lang-block:not([lang="zh"]),
+html[data-lang="en"] .lang-block:not([lang="en"]),
+html[data-lang="ja"] .lang-block:not([lang="ja"]) {
+  display: none !important;
+}
+
+/* ── Fade-in when a block appears ───────────────────────────────────────── */
+
+div.lang-block {
   animation: lang-fade-in 0.25s ease both;
 }
 
@@ -60,4 +95,8 @@
     opacity: 1;
     transform: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  div.lang-block { animation: none; }
 }

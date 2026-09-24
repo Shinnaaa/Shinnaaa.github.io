@@ -13,6 +13,13 @@
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  (function () {
+    var lang = 'zh';
+    try { lang = localStorage.getItem('lang') || lang; } catch (e) {}
+    if (['zh', 'en', 'ja'].indexOf(lang) === -1) lang = 'zh';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', { zh: 'zh-CN', en: 'en', ja: 'ja' }[lang]);
+  })();
 </script>
 
 <!-- For all browsers -->

@@ -1,56 +1,42 @@
-/* lang-switch.js — Trilingual post language switcher */
+/* lang-switch.js — site-wide language switcher.
+ *
+ * The current language lives in <html data-lang="…">, set early by the inline
+ * script in _includes/head.html so the page never flashes the wrong language.
+ * CSS (_sass/_lang-switch.scss) does all showing/hiding of .lang-block elements
+ * and highlights the active button; this script only changes the attribute.
+ */
 (function () {
   'use strict';
 
   var STORAGE_KEY = 'lang';
-  var DEFAULT_LANG = 'zh';
-
-  function readStorage() {
-    try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; }
-    catch (e) { return DEFAULT_LANG; }
-  }
+  var LANGS = ['zh', 'en', 'ja'];
+  var HTML_LANG = { zh: 'zh-CN', en: 'en', ja: 'ja' };
+  var root = document.documentElement;
 
   function writeStorage(lang) {
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
   }
 
   function applyLang(lang) {
-    // Show/hide lang-block divs
-    var blocks = document.querySelectorAll('.lang-block');
-    blocks.forEach(function (el) {
-      if (el.getAttribute('lang') === lang) {
-        el.removeAttribute('hidden');
-      } else {
-        el.setAttribute('hidden', '');
-      }
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', HTML_LANG[lang]);
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
     });
-
-    // Update active button state on ALL switchers on the page
-    var buttons = document.querySelectorAll('.lang-btn');
-    buttons.forEach(function (btn) {
-      if (btn.getAttribute('data-lang') === lang) {
-        btn.classList.add('lang-btn--active');
-      } else {
-        btn.classList.remove('lang-btn--active');
-      }
-    });
-  }
-
-  function switchLang(lang) {
-    writeStorage(lang);
-    applyLang(lang);
   }
 
   function init() {
-    var lang = readStorage();
-    applyLang(lang);
+    applyLang(root.getAttribute('data-lang') || 'zh');
 
-    // Event delegation — works for all .lang-switcher elements on the page
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('.lang-btn');
       if (!btn) return;
-      var newLang = btn.getAttribute('data-lang');
-      if (newLang) switchLang(newLang);
+      var lang = btn.getAttribute('data-lang');
+      if (LANGS.indexOf(lang) === -1 || lang === root.getAttribute('data-lang')) return;
+      writeStorage(lang);
+      applyLang(lang);
+      // Nav labels change width; let the greedy nav re-measure what fits.
+      window.dispatchEvent(new Event('resize'));
     });
   }
 

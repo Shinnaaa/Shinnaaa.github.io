@@ -1,10 +1,11 @@
 {% include base_path %}
 
 {% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}
 {% else %}
   {% assign title = post.title %}
 {% endif %}
+{% capture title %}{% include localized.html default=title zh=post.title_zh en=post.title_en ja=post.title_ja %}{% endcapture %}
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
@@ -44,7 +45,7 @@
       </p>
     {% endif %}
 
-    <a href="{{ base_path }}{{ post.url }}" class="btn btn--primary btn--small" rel="permalink">阅读全文 →</a>
+    <a href="{{ base_path }}{{ post.url }}" class="btn btn--primary btn--small" rel="permalink">{% include localized.html default="Read more →" zh="阅读全文 →" ja="続きを読む →" %}</a>
 
     {% if post.tags.size > 0 %}
       <div class="archive__item-tags">

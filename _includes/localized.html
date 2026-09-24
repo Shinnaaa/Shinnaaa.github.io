@@ -1,0 +1,10 @@
+{%- comment -%}
+  Inline trilingual text, shown/hidden by the global language switcher.
+  Usage: {% include localized.html default=page.title zh=page.title_zh en=page.title_en ja=page.title_ja %}
+  Any missing language falls back to `default`. With no translations at all, prints `default` as plain text.
+{%- endcomment -%}
+{%- if include.zh or include.en or include.ja -%}
+<span class="lang-block" lang="zh">{{ include.zh | default: include.default }}</span><span class="lang-block" lang="en">{{ include.en | default: include.default }}</span><span class="lang-block" lang="ja">{{ include.ja | default: include.default }}</span>
+{%- else -%}
+{{ include.default }}
+{%- endif -%}
