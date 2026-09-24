@@ -49,7 +49,7 @@
 .archive__item {
   padding: 1.25em 1.5em;
   margin-bottom: 0.75em;
-  background: #fff;
+  background: var(--c-surface);
   border: 1px solid $border-color;
   border-radius: $border-radius;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
@@ -144,8 +144,8 @@
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: $primary-color;
-  background: mix(#fff, $primary-color, 92%);
-  border: 1px solid mix(#fff, $primary-color, 72%);
+  background: var(--c-tag-bg);
+  border: 1px solid var(--c-tag-border);
   border-radius: 20px;
   line-height: 1.6;
 }

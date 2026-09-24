@@ -1,0 +1,13 @@
+{% include base_path %}
+<li class="intel-row reveal">
+  <a href="{{ base_path }}{{ post.url }}">
+    <time datetime="{{ post.date | date_to_xmlschema }}">
+      <span class="intel-row__day">{{ post.date | date: "%d" }}</span>
+      <span class="intel-row__month">{{ post.date | date: "%b" }}</span>
+    </time>
+    <span class="intel-row__highlights">
+      {% if post.highlights.size > 0 %}{{ post.highlights | join: " · " }}{% else %}{{ post.excerpt | strip_html | truncate: 90 }}{% endif %}
+    </span>
+    <span class="intel-row__arrow" aria-hidden="true">→</span>
+  </a>
+</li>

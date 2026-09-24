@@ -14,8 +14,8 @@ $indent-var                 : 1.3em;
 
 /* system typefaces */
 $serif                      : Georgia, Times, serif;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$sans-serif                 : var(--font-sans);
+$monospace                  : var(--font-mono);
 
 /* sans serif typefaces */
 $sans-serif-narrow          : $sans-serif;
@@ -50,15 +50,15 @@ $type-size-8                : 0.625em;  // ~10px
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
-$light-gray                 : mix(#fff, $gray, 50%);
-$lighter-gray               : mix(#fff, $gray, 90%);
+$light-gray                 : var(--c-light-gray);
+$lighter-gray               : var(--c-lighter-gray);
 
-$body-color                 : #fff;
-$background-color           : #fff;
-$code-background-color      : #f6f8fa;
+$body-color                 : var(--c-bg);
+$background-color           : var(--c-bg);
+$code-background-color      : var(--c-code-bg);
 $code-background-color-dark : $light-gray;
-$text-color                 : #2d3748;
-$border-color               : #e2e8f0;
+$text-color                 : var(--c-text);
+$border-color               : var(--c-border);
 
 /* ── Accent: professional blue (was neutral gray #7a8288) ── */
 $primary-color              : #2563eb;
@@ -91,10 +91,10 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $primary-color;
-$link-color-hover           : mix(#000, $link-color, 20%);
-$link-color-visited         : mix(#fff, $link-color, 15%);
-$masthead-link-color        : $darker-gray;
+$link-color                 : var(--c-link);
+$link-color-hover           : var(--c-link-hover);
+$link-color-visited         : var(--c-link);
+$masthead-link-color        : var(--c-masthead-link);
 $masthead-link-color-hover  : $primary-color;
 
 

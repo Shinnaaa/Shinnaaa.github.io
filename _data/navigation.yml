@@ -14,6 +14,11 @@ main:
     title_zh: "博客"
     title_ja: "ブログ"
     url: /year-archive/
+
+  - title: "Tech Intel"
+    title_zh: "技术情报"
+    title_ja: "技術インテル"
+    url: /intel/
     
   - title: "CV"
     title_zh: "简历"

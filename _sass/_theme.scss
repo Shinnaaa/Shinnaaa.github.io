@@ -1,0 +1,431 @@
+/* ==========================================================================
+   THEME LAYER
+   Colour tokens (light + dark), language-aware fonts, home / intel page
+   components, reading aids and motion. Loaded last so it can refine the
+   Minimal Mistakes defaults.
+   ========================================================================== */
+
+/* ── Tokens ─────────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light dark;
+
+  --c-bg: #fff;
+  --c-surface: #fff;
+  --c-text: #2d3748;
+  --c-text-strong: #000;
+  --c-text-muted: #{mix(#fff, #2d3748, 25%)};
+  --c-border: #e2e8f0;
+  --c-code-bg: #f6f8fa;
+  --c-light-gray: #{mix(#fff, $gray, 50%)};
+  --c-lighter-gray: #{mix(#fff, $gray, 90%)};
+  --c-link: #{$primary-color};
+  --c-link-hover: #{mix(#000, $primary-color, 20%)};
+  --c-masthead-link: #{mix(#000, $gray, 60%)};
+  --c-tag-bg: #{mix(#fff, $primary-color, 92%)};
+  --c-tag-border: #{mix(#fff, $primary-color, 72%)};
+  --c-switch-bg: rgba(226, 232, 240, 0.25);
+  --c-hover-bg: rgba(37, 99, 235, 0.05);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  --font-latin: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+  --font-sans: var(--font-latin), "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+/* Kanji differ in shape between Chinese and Japanese; pick fonts by page language. */
+html[lang="ja"] {
+  --font-sans: var(--font-latin), "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+}
+
+@mixin dark-tokens {
+  --c-bg: #0e1117;
+  --c-surface: #161b22;
+  --c-text: #d1d7e0;
+  --c-text-strong: #f0f3f6;
+  --c-text-muted: #9aa4b2;
+  --c-border: #2a313c;
+  --c-code-bg: #1b212a;
+  --c-light-gray: #3a424e;
+  --c-lighter-gray: #1b212a;
+  --c-link: #7ea8ff;
+  --c-link-hover: #a9c4ff;
+  --c-masthead-link: #c9d1d9;
+  --c-tag-bg: rgba(126, 168, 255, 0.12);
+  --c-tag-border: rgba(126, 168, 255, 0.35);
+  --c-switch-bg: rgba(255, 255, 255, 0.04);
+  --c-hover-bg: rgba(126, 168, 255, 0.07);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { @include dark-tokens; }
+
+  /* Theme rules that hard-code black text or light surfaces */
+  body,
+  .page__title,
+  .page__content h1, .page__content h2, .page__content h3, .page__content h4,
+  .archive__item-title, .archive__subtitle,
+  .author__name { color: var(--c-text); }
+  .page__content h2 { border-bottom-color: var(--c-border); }
+  .archive__item-title a { color: var(--c-text-strong); }
+  .archive__item-excerpt, .archive__item-meta, .page__meta, .page__date { color: var(--c-text-muted); }
+  .page__content code, .archive__item code { background: var(--c-code-bg); color: #e6edf3; }
+  .masthead { border-bottom-color: #1f3b7a; }
+  .btn--inverse { color: var(--c-text) !important; border-color: var(--c-border) !important; }
+  img.author__avatar, .author__avatar img { border-color: var(--c-border); }
+  hr { border-top-color: var(--c-border); }
+
+  /* Near-black icons (map marker, GitHub's brand colour) vanish on the dark background */
+  .author__urls .fa, .author__urls .fas { color: var(--c-text-muted); }
+  .social-icons .fa-github, .social-icons .fa-github-alt, .social-icons .fa-github-square { color: var(--c-text); }
+}
+
+/* ── Typography ─────────────────────────────────────────────────────────── */
+
+html[lang="zh-CN"] .page__content,
+html[lang="ja"] .page__content {
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+/* ── Cards: the whole card is the link ──────────────────────────────────── */
+
+.archive__item {
+  position: relative;
+  animation: none;
+
+  .archive__item-title a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  /* Secondary links inside a card stay clickable above the overlay */
+  .archive__item-citation a,
+  .archive__item-title a[rel="permalink"] + a,
+  .archive__item-title a:not([rel="permalink"]) ~ a {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover { box-shadow: var(--shadow-card); }
+}
+
+.archive__aside {
+  margin: -0.5em 0 1.5em;
+  font-size: $type-size-6;
+
+  a { text-decoration: none; }
+}
+
+/* ── Tech intel list (intel page + home) ────────────────────────────────── */
+
+.intel-intro {
+  color: var(--c-text-muted);
+  font-size: $type-size-6;
+  margin-bottom: 1.5em;
+}
+
+.intel-month {
+  margin-bottom: 0.75em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: var(--c-surface);
+
+  > summary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75em;
+    padding: 0.8em 1.1em;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 700;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::before {
+      content: "›";
+      display: inline-block;
+      color: var(--c-text-muted);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &[open] > summary::before { transform: rotate(90deg); }
+}
+
+.intel-month__count {
+  color: var(--c-text-muted);
+  font-size: $type-size-6;
+  font-weight: 400;
+}
+
+.intel-list {
+  margin: 0;
+  padding: 0 0 0.4em;
+  list-style: none;
+}
+
+.intel-row {
+  margin: 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.55em 1.1em;
+    color: var(--c-text);
+    text-decoration: none;
+    border-top: 1px solid $border-color;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: var(--c-hover-bg);
+
+      .intel-row__arrow { opacity: 1; transform: none; }
+    }
+  }
+}
+
+.intel-row time {
+  flex: 0 0 2.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.intel-row__day { font-size: $type-size-4; font-weight: 700; }
+.intel-row__month { font-size: $type-size-8; color: var(--c-text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.intel-row__highlights {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: $type-size-6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.intel-row__arrow {
+  color: $primary-color;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* ── Home sections ──────────────────────────────────────────────────────── */
+
+.home-section {
+  margin-top: 2.5em;
+
+  .intel-list {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background: var(--c-surface);
+    overflow: hidden;
+    padding: 0;
+
+    .intel-row:first-child a { border-top: 0; }
+  }
+}
+
+.home-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75em;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: $type-size-4;
+  }
+}
+
+.home-section__more {
+  font-size: $type-size-6;
+  text-decoration: none;
+}
+
+.home-card {
+  display: block;
+  margin-bottom: 0.6em;
+  padding: 0.85em 1.1em;
+  color: var(--c-text);
+  text-decoration: none;
+  background: var(--c-surface);
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: $primary-color;
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+}
+
+.home-card,
+.home-card:hover,
+.home-section__more { text-decoration: none; }
+
+.home-card__title { display: block; font-weight: 700; line-height: 1.35; }
+.home-card__meta { display: block; margin-top: 0.3em; color: var(--c-text-muted); font-size: $type-size-6; }
+
+/* ── Reading aids: table of contents + back to top ──────────────────────── */
+
+.page-toc {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .page { position: relative; }
+
+  .page-toc {
+    display: block;
+    position: absolute;  // sits in the page's right padding, beside the text column
+    top: 0;
+    right: 0;
+    width: 11.5em;
+    height: 100%;
+  }
+}
+
+.page-toc__inner {
+  position: sticky;
+  top: 1.5em;
+  padding-left: 0.9em;
+  border-left: 1px solid $border-color;
+  font-size: $type-size-6;
+}
+
+.page-toc__title {
+  margin-bottom: 0.5em;
+  color: var(--c-text-muted);
+  font-size: $type-size-7;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-toc ol { margin: 0; padding: 0; list-style: none; }
+
+.page-toc a {
+  position: relative;
+  display: block;
+  padding: 0.3em 0;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-0.9em - 1px);
+    top: 0.3em;
+    bottom: 0.3em;
+    width: 2px;
+    background: $primary-color;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover { color: var(--c-text); }
+
+  &.is-active {
+    color: var(--c-text-strong);
+
+    &::before { transform: none; }
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 20;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  background: var(--c-surface);
+  color: var(--c-text);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  &:hover { color: $primary-color; border-color: $primary-color; }
+}
+
+/* ── Current page in the masthead ───────────────────────────────────────── */
+
+.masthead__menu-item a.is-current {
+  position: relative;
+  color: var(--c-text-strong);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.2rem;
+    height: 2px;
+    border-radius: 2px;
+    background: $primary-color;
+    view-transition-name: nav-indicator;  // slides to the new item on page change
+  }
+}
+
+/* ── Motion ─────────────────────────────────────────────────────────────── */
+
+/* Same-origin page changes cross-fade; the masthead stays put. */
+@view-transition { navigation: auto; }
+
+.masthead { view-transition-name: masthead; }
+.sidebar { view-transition-name: sidebar; }
+
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.22s; }
+
+::view-transition-group(nav-indicator) { animation-duration: 0.3s; animation-timing-function: cubic-bezier(0.2, 0, 0, 1); }
+
+/* Scroll reveal. Only hidden when JS is running, so content never disappears without it. */
+html.js .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal {
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+
+  html.js .reveal:not(.is-visible) { opacity: 1; transform: none; }
+
+  .reveal,
+  .archive__item,
+  .home-card,
+  .intel-row a,
+  .intel-row__arrow,
+  .back-to-top,
+  .page-toc a::before { transition: none; }
+
+  .archive__item:hover,
+  .home-card:hover { transform: none; }
+}

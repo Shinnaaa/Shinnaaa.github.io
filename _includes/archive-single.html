@@ -1,13 +1,13 @@
 {% include base_path %}
 
 {% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" | strip %}
+  {% assign title = post.title | markdownify | strip_html | strip %}{% comment %} titles sit inside a link; a nested <a> breaks it {% endcomment %}
 {% else %}
   {% assign title = post.title %}
 {% endif %}
 {% capture title %}{% include localized.html default=title zh=post.title_zh en=post.title_en ja=post.title_ja %}{% endcapture %}
 
-<div class="{{ include.type | default: "list" }}__item">
+<div class="{{ include.type | default: "list" }}__item reveal">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
 
     {% if include.type == "grid" and post.header.teaser %}
@@ -44,8 +44,6 @@
         {{ post.excerpt | strip_html | truncate: 180 }}
       </p>
     {% endif %}
-
-    <a href="{{ base_path }}{{ post.url }}" class="btn btn--primary btn--small" rel="permalink">{% include localized.html default="Read more →" zh="阅读全文 →" ja="続きを読む →" %}</a>
 
     {% if post.tags.size > 0 %}
       <div class="archive__item-tags">

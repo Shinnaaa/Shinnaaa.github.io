@@ -18,3 +18,6 @@ Please feel free to share your opinions and make progress together.
 
 ---
 
+
+
+{% include home-feed.html %}

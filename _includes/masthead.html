@@ -1,4 +1,11 @@
 {% include base_path %}
+{% comment %} Which nav item is "current": posts belong to Blog or Tech Intel, collection items to their page. {% endcomment %}
+{% assign current_nav = page.url %}
+{% if page.categories contains 'Technical Intelligence' %}{% assign current_nav = '/intel/' %}
+{% elsif page.collection == 'posts' %}{% assign current_nav = '/year-archive/' %}
+{% elsif page.collection == 'portfolio' %}{% assign current_nav = '/projects/' %}
+{% elsif page.collection == 'publications' %}{% assign current_nav = '/publications/' %}
+{% endif %}
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -13,7 +20,7 @@
               {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{% include localized.html default=link.title zh=link.title_zh ja=link.title_ja %}</a></li>
+            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}"{% if link.url == current_nav %} class="is-current" aria-current="page"{% endif %}>{% include localized.html default=link.title zh=link.title_zh ja=link.title_ja %}</a></li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -23,3 +30,4 @@
   </div>
 </div>
 <script defer src="{{ base_path }}/assets/js/lang-switch.js"></script>
+<script defer src="{{ base_path }}/assets/js/page-enhance.js"></script>

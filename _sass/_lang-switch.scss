@@ -30,7 +30,7 @@
   vertical-align: middle;
   border: 1px solid $border-color;
   border-radius: 999px;
-  background: rgba($border-color, 0.25);
+  background: var(--c-switch-bg);
 }
 
 .lang-btn {
@@ -80,10 +80,12 @@ html[data-lang="ja"] .lang-block:not([lang="ja"]) {
   display: none !important;
 }
 
-/* ── Fade-in when a block appears ───────────────────────────────────────── */
+/* ── Fade-in when a block appears (browsers without View Transitions) ───── */
 
-div.lang-block {
-  animation: lang-fade-in 0.25s ease both;
+@supports not (view-transition-name: none) {
+  div.lang-block {
+    animation: lang-fade-in 0.25s ease both;
+  }
 }
 
 @keyframes lang-fade-in {

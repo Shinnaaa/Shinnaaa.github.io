@@ -34,9 +34,18 @@
       var lang = btn.getAttribute('data-lang');
       if (LANGS.indexOf(lang) === -1 || lang === root.getAttribute('data-lang')) return;
       writeStorage(lang);
-      applyLang(lang);
-      // Nav labels change width; let the greedy nav re-measure what fits.
-      window.dispatchEvent(new Event('resize'));
+      var swap = function () {
+        applyLang(lang);
+        // Nav labels change width; let the greedy nav re-measure what fits.
+        window.dispatchEvent(new Event('resize'));
+        document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+      };
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (document.startViewTransition && !reduceMotion) {
+        document.startViewTransition(swap);
+      } else {
+        swap();
+      }
     });
   }
 

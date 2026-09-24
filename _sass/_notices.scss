@@ -65,7 +65,7 @@
 /* Default notice */
 
 .notice {
-  @include notice($light-gray);
+  @include notice(mix(#fff, $gray, 50%));  // static: mix() needs a real colour
 }
 
 /* Primary notice */

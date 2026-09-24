@@ -1,0 +1,46 @@
+{% include base_path %}
+{% comment %} Home page sections, fed from existing collections so they stay current on their own. {% endcomment %}
+
+<section class="home-section reveal">
+  <header class="home-section__head">
+    <h2>{% include localized.html default="Publications" zh="论文" ja="論文" %}</h2>
+    <a class="home-section__more" href="{{ base_path }}/publications/">{% include localized.html default="All →" zh="全部 →" ja="すべて →" %}</a>
+  </header>
+  {% assign pubs = site.publications | sort: "date" | reverse %}
+  {% for pub in pubs limit: 2 %}
+    <a class="home-card" href="{{ base_path }}{{ pub.url }}">
+      <span class="home-card__title">{{ pub.title }}</span>
+      <span class="home-card__meta"><em>{{ pub.venue }}</em> · {{ pub.date | date: "%Y" }}</span>
+    </a>
+  {% endfor %}
+</section>
+
+<section class="home-section reveal">
+  <header class="home-section__head">
+    <h2>{% include localized.html default="Latest tech intel" zh="最新技术情报" ja="最新の技術インテル" %}</h2>
+    <a class="home-section__more" href="{{ base_path }}/intel/">{% include localized.html default="All →" zh="全部 →" ja="すべて →" %}</a>
+  </header>
+  {% assign intel_posts = site.posts | where_exp: "p", "p.categories contains 'Technical Intelligence'" %}
+  <ol class="intel-list">
+    {% for post in intel_posts limit: 3 %}
+      {% include intel-row.html %}
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="home-section reveal">
+  <header class="home-section__head">
+    <h2>{% include localized.html default="Blog posts" zh="博客文章" ja="ブログ記事" %}</h2>
+    <a class="home-section__more" href="{{ base_path }}/year-archive/">{% include localized.html default="All →" zh="全部 →" ja="すべて →" %}</a>
+  </header>
+  {% assign shown = 0 %}
+  {% for post in site.posts %}
+    {% if post.categories contains 'Technical Intelligence' %}{% continue %}{% endif %}
+    {% if shown >= 3 %}{% break %}{% endif %}
+    {% assign shown = shown | plus: 1 %}
+    <a class="home-card" href="{{ base_path }}{{ post.url }}">
+      <span class="home-card__title">{% include localized.html default=post.title zh=post.title_zh en=post.title_en ja=post.title_ja %}</span>
+      <span class="home-card__meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+    </a>
+  {% endfor %}
+</section>

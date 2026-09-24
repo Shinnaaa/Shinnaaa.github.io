@@ -1,0 +1,36 @@
+---
+layout: archive
+title: "Tech Intel"
+title_zh: "技术情报"
+title_ja: "技術インテル"
+permalink: /intel/
+author_profile: true
+---
+
+{% include base_path %}
+{% assign intel_posts = site.posts | where_exp: "p", "p.categories contains 'Technical Intelligence'" %}
+
+<p class="intel-intro">
+  {% include localized.html
+     default="Generated every morning at 08:00 (UTC+8) by TechTrend: GitHub Trending, Hugging Face, Hacker News, r/LocalLLaMA and Product Hunt, each item analysed with an LLM."
+     zh="每天北京时间 08:00 由 TechTrend 自动生成：汇总 GitHub Trending、Hugging Face、Hacker News、r/LocalLLaMA 和 Product Hunt，由 LLM 逐条分析。"
+     ja="TechTrend が毎朝 8:00（UTC+8）に自動生成。GitHub Trending・Hugging Face・Hacker News・r/LocalLLaMA・Product Hunt を LLM が一件ずつ分析します。" %}
+</p>
+
+{% assign months = intel_posts | group_by_exp: "p", "p.date | date: '%Y-%m'" %}
+{% for month in months %}
+  {% capture count_zh %}{{ month.size }} 篇{% endcapture %}
+  {% capture count_en %}{{ month.size }} reports{% endcapture %}
+  {% capture count_ja %}{{ month.size }} 件{% endcapture %}
+  <details class="intel-month"{% if forloop.first %} open{% endif %}>
+    <summary>
+      <span class="intel-month__name">{{ month.name | replace: "-", " · " }}</span>
+      <span class="intel-month__count">{% include localized.html default=count_en zh=count_zh ja=count_ja %}</span>
+    </summary>
+    <ol class="intel-list">
+      {% for post in month.items %}
+        {% include intel-row.html %}
+      {% endfor %}
+    </ol>
+  </details>
+{% endfor %}

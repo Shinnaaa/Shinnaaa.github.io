@@ -1,17 +1,17 @@
-{% if post.read_time %}
-  {% assign words = post.content | strip_html | number_of_words %}
-{% elsif page.read_time %}
-  {% assign words = page.content | strip_html | number_of_words %}
-{% endif %}
-
-{% if site.words_per_minute %}
-  {% if words < 180 %}
-	  {{ site.data.ui-text[site.locale].less_than | default: "less than" }} 1 {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
-	{% elsif words < 360 %}
-	  1 {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
-	{% else %}
-	  {{ words | divided_by:site.words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
-	{% endif %}
-{% else %}
-  {{ site.data.ui-text[site.locale].undefined_wpm | "Undefined parameter words_per_minute at _config.yml" }}
-{% endif %}
+{%- if post.read_time -%}{%- assign rt_doc = post -%}{%- else -%}{%- assign rt_doc = page -%}{%- endif -%}
+{%- if rt_doc.trilingual -%}
+  {%- comment -%}
+    Trilingual posts hold three full copies of the text; time only the one being read.
+    Chinese/Japanese are timed by characters (~500/min), English by words (~230/min).
+  {%- endcomment -%}
+  {%- assign rt_zh = rt_doc.content | split: 'lang="zh"' | last | split: '</div>' | first | strip_html | strip_newlines | size | divided_by: 500 | at_least: 1 -%}
+  {%- assign rt_en = rt_doc.content | split: 'lang="en"' | last | split: '</div>' | first | strip_html | number_of_words | divided_by: 230 | at_least: 1 -%}
+  {%- assign rt_ja = rt_doc.content | split: 'lang="ja"' | last | split: '</div>' | first | strip_html | strip_newlines | size | divided_by: 500 | at_least: 1 -%}
+{%- else -%}
+  {%- assign rt_en = rt_doc.content | strip_html | number_of_words | divided_by: site.words_per_minute | at_least: 1 -%}
+  {%- assign rt_zh = rt_en -%}{%- assign rt_ja = rt_en -%}
+{%- endif -%}
+{%- capture rt_zh_label -%}约 {{ rt_zh }} 分钟{%- endcapture -%}
+{%- capture rt_en_label -%}{{ rt_en }} min read{%- endcapture -%}
+{%- capture rt_ja_label -%}約 {{ rt_ja }} 分{%- endcapture -%}
+{%- include localized.html default=rt_en_label zh=rt_zh_label ja=rt_ja_label -%}

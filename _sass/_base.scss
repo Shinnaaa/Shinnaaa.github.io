@@ -236,7 +236,7 @@ figure {
 
 figcaption {
   margin-bottom: 0.5em;
-  color: mix(#fff, $text-color, 25%);
+  color: var(--c-text-muted);
   font-family: $caption-font-family;
   font-size: $type-size-6;
 
@@ -248,8 +248,8 @@ figcaption {
     transition: $global-transition;
 
     &:hover {
-      color: #000;
-      border-bottom-color: #000;
+      color: var(--c-text-strong);
+      border-bottom-color: var(--c-text-strong);
     }
   }
 }
