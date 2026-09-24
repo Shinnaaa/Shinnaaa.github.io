@@ -94,7 +94,42 @@
     }, { passive: true });
   }
 
+  /* ── Masthead nav overflow ────────────────────────────────────────── */
+
+  // Replaces the theme's greedy-nav updateNav() (a global called by its resize
+  // handler). The original remembered each item's width when hiding it and never
+  // re-measured, so after a language switch or a late font load items stayed in
+  // the dropdown although they fit. This version recomputes from scratch.
+  function initNavOverflow() {
+    var nav = document.getElementById('site-nav');
+    if (!nav || !window.jQuery) return;
+    var btn = nav.querySelector('button');
+    var visible = nav.querySelector('.visible-links');
+    var hidden = nav.querySelector('.hidden-links');
+
+    window.updateNav = function () {
+      while (hidden.firstElementChild) visible.appendChild(hidden.firstElementChild);
+      btn.classList.add('hidden');
+      if (visible.getBoundingClientRect().width > nav.getBoundingClientRect().width) {
+        btn.classList.remove('hidden');
+        var room = nav.getBoundingClientRect().width - btn.getBoundingClientRect().width - 30;
+        while (visible.children.length && visible.getBoundingClientRect().width > room) {
+          hidden.insertBefore(visible.lastElementChild, hidden.firstElementChild);
+        }
+      }
+      if (!hidden.children.length) {
+        hidden.classList.add('hidden');
+        btn.classList.remove('close');
+      }
+      btn.setAttribute('count', hidden.children.length);
+    };
+
+    window.updateNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(window.updateNav);
+  }
+
   function init() {
+    initNavOverflow();
     initReveal();
     buildToc();
     initBackToTop();

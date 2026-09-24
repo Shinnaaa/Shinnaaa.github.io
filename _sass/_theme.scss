@@ -373,6 +373,10 @@ html[lang="ja"] .page__content {
 
 /* ── Current page in the masthead ───────────────────────────────────────── */
 
+/* Five items + the language switch must fit the 775px nav used below 1280px wide */
+.greedy-nav a { margin: 0 0.75rem; }
+.masthead__menu-item--lg { padding-right: 1.25em; }
+
 .masthead__menu-item a.is-current {
   position: relative;
   color: var(--c-text-strong);
