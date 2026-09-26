@@ -1,0 +1,52 @@
+<svg viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OpenClaw timeline from November 2025 to September 2026">
+<line x1="30" y1="135" x2="700" y2="135" class="f-line"/>
+<line x1="50" y1="117" x2="50" y2="135" class="f-grid"/>
+<circle cx="50" cy="135" r="6" class="f-blue"/>
+<text x="50" y="62" text-anchor="middle" class="f-small">2025-11-24</text>
+<text x="50" y="80" text-anchor="middle" class="f-text">Warelay</text>
+<text x="50" y="96" text-anchor="middle" class="f-small">first release</text>
+<line x1="119" y1="135" x2="119" y2="153" class="f-grid"/>
+<circle cx="119" cy="135" r="6" class="f-blue"/>
+<text x="119" y="176" text-anchor="middle" class="f-small">01-27</text>
+<text x="119" y="194" text-anchor="middle" class="f-text">→ Moltbot</text>
+<text x="119" y="210" text-anchor="middle" class="f-small">+ Moltbook</text>
+<line x1="188" y1="117" x2="188" y2="135" class="f-grid"/>
+<circle cx="188" cy="135" r="6" class="f-red"/>
+<text x="188" y="62" text-anchor="middle" class="f-small">01-28</text>
+<text x="188" y="80" text-anchor="middle" class="f-text">malicious skill</text>
+<text x="188" y="96" text-anchor="middle" class="f-small">found by Cisco</text>
+<line x1="257" y1="135" x2="257" y2="153" class="f-grid"/>
+<circle cx="257" cy="135" r="6" class="f-blue"/>
+<text x="257" y="176" text-anchor="middle" class="f-small">01-30</text>
+<text x="257" y="194" text-anchor="middle" class="f-text">→ OpenClaw</text>
+<text x="257" y="210" text-anchor="middle" class="f-small">second rename</text>
+<line x1="326" y1="117" x2="326" y2="135" class="f-grid"/>
+<circle cx="326" cy="135" r="6" class="f-red"/>
+<text x="326" y="62" text-anchor="middle" class="f-small">02-03</text>
+<text x="326" y="80" text-anchor="middle" class="f-text">CVE-2026-25253</text>
+<text x="326" y="96" text-anchor="middle" class="f-small">1-click RCE · 40k+ exposed</text>
+<line x1="395" y1="135" x2="395" y2="153" class="f-grid"/>
+<circle cx="395" cy="135" r="6" class="f-blue"/>
+<text x="395" y="176" text-anchor="middle" class="f-small">02-14</text>
+<text x="395" y="194" text-anchor="middle" class="f-text">author → OpenAI</text>
+<text x="395" y="210" text-anchor="middle" class="f-small">Foundation takes over</text>
+<line x1="464" y1="117" x2="464" y2="135" class="f-grid"/>
+<circle cx="464" cy="135" r="6" class="f-green"/>
+<text x="464" y="62" text-anchor="middle" class="f-small">03-02</text>
+<text x="464" y="80" text-anchor="middle" class="f-text">247k ★</text>
+<line x1="533" y1="135" x2="533" y2="153" class="f-grid"/>
+<circle cx="533" cy="135" r="6" class="f-red"/>
+<text x="533" y="176" text-anchor="middle" class="f-small">2026-03</text>
+<text x="533" y="194" text-anchor="middle" class="f-text">China restricts</text>
+<text x="533" y="210" text-anchor="middle" class="f-small">in state enterprises</text>
+<line x1="602" y1="117" x2="602" y2="135" class="f-grid"/>
+<circle cx="602" cy="135" r="6" class="f-blue"/>
+<text x="602" y="62" text-anchor="middle" class="f-small">08-30</text>
+<text x="602" y="80" text-anchor="middle" class="f-text">OpenClaw 2.0</text>
+<text x="602" y="96" text-anchor="middle" class="f-small">sandbox still off</text>
+<line x1="671" y1="135" x2="671" y2="153" class="f-grid"/>
+<circle cx="671" cy="135" r="6" class="f-green"/>
+<text x="671" y="176" text-anchor="middle" class="f-small">09-08</text>
+<text x="671" y="194" text-anchor="middle" class="f-text">389k ★</text>
+<text x="20" y="258" class="f-small">Dates in 2026 unless noted; spacing not to scale. Sources: Wikipedia “OpenClaw”, The Register, Cisco, runZero.</text>
+</svg>

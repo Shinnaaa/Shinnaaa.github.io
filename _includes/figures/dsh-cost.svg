@@ -1,0 +1,19 @@
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reported cost per agent task: 0.045 to 0.09 dollars with DeepSeek Harness on V4-Flash, 0.195 to 0.65 dollars with Claude Code on Opus">
+<text x="20" y="26" class="f-strong">Reported cost per task (USD)</text>
+<line x1="220" y1="150" x2="700" y2="150" class="f-grid"/>
+<line x1="220" y1="45" x2="220" y2="150" class="f-grid"/>
+<line x1="380" y1="45" x2="380" y2="150" class="f-grid"/>
+<line x1="540" y1="45" x2="540" y2="150" class="f-grid"/>
+<line x1="700" y1="45" x2="700" y2="150" class="f-grid"/>
+<text x="220" y="168" text-anchor="middle" class="f-small">$0</text>
+<text x="380" y="168" text-anchor="middle" class="f-small">$0.20</text>
+<text x="540" y="168" text-anchor="middle" class="f-small">$0.40</text>
+<text x="700" y="168" text-anchor="middle" class="f-small">$0.60</text>
+<text x="210" y="82" text-anchor="end" class="f-text">dsh + V4-Flash</text>
+<rect x="256" y="68" width="36" height="20" rx="4" class="f-blue"/>
+<text x="300" y="83" class="f-small">$0.045 – 0.09</text>
+<text x="210" y="126" text-anchor="end" class="f-text">Claude Code + Opus</text>
+<rect x="376" y="112" width="324" height="20" rx="4" class="f-amber"/>
+<text x="604" y="106" text-anchor="middle" class="f-small">$0.195 – 0.65 (bar clipped at $0.60)</text>
+<text x="20" y="192" class="f-small">Source: third-party write-up of dsh (A. Masood, Aug 2026). Ranges as reported, not my measurement.</text>
+</svg>

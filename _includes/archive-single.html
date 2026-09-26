@@ -40,8 +40,11 @@
     </div>
 
     {% if post.excerpt %}
+      {% assign ex = post.excerpt | strip_html | truncate: 180 %}
+      {% assign ex_zh = post.excerpt_zh | strip_html | truncate: 120 %}
+      {% assign ex_ja = post.excerpt_ja | strip_html | truncate: 120 %}
       <p class="archive__item-excerpt" itemprop="description">
-        {{ post.excerpt | strip_html | truncate: 180 }}
+        {% if post.excerpt_zh or post.excerpt_ja %}{% include localized.html default=ex zh=ex_zh ja=ex_ja %}{% else %}{{ ex }}{% endif %}
       </p>
     {% endif %}
 

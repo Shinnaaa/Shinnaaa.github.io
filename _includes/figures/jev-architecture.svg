@@ -1,0 +1,13 @@
+<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jev as a System One decision layer in front of code, an LLM and a human">
+<defs><marker id="jev-a-{{ include.id }}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-arrow"/></marker></defs>
+<rect x="20" y="130" width="130" height="64" rx="10" class="f-box"/><text x="85" y="158" text-anchor="middle" class="f-text">event / ticket /</text><text x="85" y="176" text-anchor="middle" class="f-text">agent step</text>
+<rect x="200" y="112" width="190" height="100" rx="12" class="f-accent"/><text x="295" y="142" text-anchor="middle" class="f-strong">Jev (System 1)</text><text x="295" y="162" text-anchor="middle" class="f-small">choice · score · yes/no</text><text x="295" y="180" text-anchor="middle" class="f-small">+ probability, 70–500 ms</text><text x="295" y="198" text-anchor="middle" class="f-small">several questions, one pass</text>
+<path d="M150,162 L198,162" class="f-line" marker-end="url(#jev-a-{{ include.id }})"/>
+<rect x="470" y="20" width="230" height="64" rx="10" class="f-box"/><text x="585" y="46" text-anchor="middle" class="f-text">deterministic code</text><text x="585" y="66" text-anchor="middle" class="f-small">high confidence, low risk</text>
+<rect x="470" y="130" width="230" height="64" rx="10" class="f-box"/><text x="585" y="156" text-anchor="middle" class="f-text">LLM (System 2)</text><text x="585" y="176" text-anchor="middle" class="f-small">open-ended, needs reasoning</text>
+<rect x="470" y="240" width="230" height="64" rx="10" class="f-warn"/><text x="585" y="266" text-anchor="middle" class="f-text">human</text><text x="585" y="286" text-anchor="middle" class="f-small">low confidence or high stakes</text>
+<path d="M390,140 L468,58" class="f-line" marker-end="url(#jev-a-{{ include.id }})"/>
+<path d="M390,162 L468,162" class="f-line" marker-end="url(#jev-a-{{ include.id }})"/>
+<path d="M390,184 L468,268" class="f-line" marker-end="url(#jev-a-{{ include.id }})"/>
+<text x="400" y="92" class="f-small">p ≥ τ(risk)</text>
+</svg>

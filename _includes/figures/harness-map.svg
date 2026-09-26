@@ -1,0 +1,13 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agent harnesses by core size and openness">
+<rect x="90" y="30" width="600" height="330" class="f-grid"/>
+<line x1="390" y1="30" x2="390" y2="360" class="f-grid"/>
+<line x1="90" y1="195" x2="690" y2="195" class="f-grid"/>
+<text x="390" y="395" text-anchor="middle" class="f-text">core: minimal ← → batteries-included</text>
+<text x="30" y="195" text-anchor="middle" transform="rotate(-90 30 195)" class="f-text">open / composable ↑</text>
+<text x="100" y="52" class="f-small">you (or the agent) write the features</text>
+<text x="680" y="350" text-anchor="end" class="f-small">the vendor ships the features</text>
+<rect x="120" y="70" width="170" height="62" rx="10" class="f-accent"/><text x="205" y="96" text-anchor="middle" class="f-strong">Pi</text><text x="205" y="115" text-anchor="middle" class="f-small">4 tools · &lt;1k-token prompt</text>
+<rect x="300" y="100" width="190" height="62" rx="10" class="f-accent"/><text x="395" y="126" text-anchor="middle" class="f-strong">DeepSeek Harness</text><text x="395" y="145" text-anchor="middle" class="f-small">even the loop is a plugin</text>
+<rect x="470" y="190" width="190" height="62" rx="10" class="f-warn"/><text x="565" y="216" text-anchor="middle" class="f-strong">OpenClaw</text><text x="565" y="235" text-anchor="middle" class="f-small">Pi inside · 20+ chat apps</text>
+<rect x="450" y="262" width="220" height="62" rx="10" class="f-box"/><text x="560" y="288" text-anchor="middle" class="f-strong">Claude Code · Codex</text><text x="560" y="307" text-anchor="middle" class="f-small">opinionated, model-matched</text>
+</svg>

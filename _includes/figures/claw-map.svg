@@ -1,0 +1,15 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Claw variants placed by isolation and footprint">
+<line x1="90" y1="360" x2="690" y2="360" class="f-line"/>
+<line x1="90" y1="360" x2="90" y2="30" class="f-line"/>
+<text x="390" y="395" text-anchor="middle" class="f-text">isolation / security boundary →</text>
+<text x="100" y="380" class="f-small">none by default</text>
+<text x="690" y="380" text-anchor="end" class="f-small">container · TEE</text>
+<text x="30" y="200" text-anchor="middle" transform="rotate(-90 30 200)" class="f-text">smaller footprint →</text>
+<rect x="100" y="280" width="140" height="56" rx="10" class="f-warn"/><text x="170" y="304" text-anchor="middle" class="f-strong">OpenClaw</text><text x="170" y="322" text-anchor="middle" class="f-small">TypeScript · 1 GB+ RAM</text>
+<rect x="160" y="50" width="150" height="56" rx="10" class="f-box"/><text x="235" y="74" text-anchor="middle" class="f-strong">PicoClaw</text><text x="235" y="92" text-anchor="middle" class="f-small">Go · &lt;10 MB RAM · $10 boards</text>
+<rect x="330" y="200" width="150" height="56" rx="10" class="f-box"/><text x="405" y="224" text-anchor="middle" class="f-strong">Nanobot</text><text x="405" y="242" text-anchor="middle" class="f-small">Python · ~4k lines</text>
+<rect x="400" y="70" width="160" height="56" rx="10" class="f-accent"/><text x="480" y="94" text-anchor="middle" class="f-strong">ZeroClaw</text><text x="480" y="112" text-anchor="middle" class="f-small">Rust · 3.4 MB · encrypted secrets</text>
+<rect x="500" y="180" width="170" height="56" rx="10" class="f-accent"/><text x="585" y="204" text-anchor="middle" class="f-strong">NanoClaw</text><text x="585" y="222" text-anchor="middle" class="f-small">Docker per chat group</text>
+<rect x="520" y="280" width="160" height="56" rx="10" class="f-accent"/><text x="600" y="304" text-anchor="middle" class="f-strong">IronClaw</text><text x="600" y="322" text-anchor="middle" class="f-small">TEE · encrypted vault</text>
+<text x="690" y="20" text-anchor="end" class="f-small">my rough placement, from each project's own claims</text>
+</svg>

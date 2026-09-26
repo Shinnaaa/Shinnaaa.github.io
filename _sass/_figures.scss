@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Inline SVG figures in posts (_includes/figures/*.svg).
+   Colours come from the theme variables, so figures follow light/dark mode.
+   ========================================================================== */
+
+.post-figure {
+  margin: 1.8em 0;
+  text-align: center;
+
+  svg {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin: 0 auto;
+    font-family: inherit;
+  }
+
+  figcaption {
+    margin-top: 0.6em;
+    font-family: $global-font-family;
+    font-size: $type-size-7;
+    color: var(--c-text-muted);
+  }
+}
+
+.f-box { fill: var(--c-surface); stroke: var(--c-border); stroke-width: 1.5; }
+.f-box-dash { fill: var(--c-surface); stroke: var(--c-text-muted); stroke-width: 1.2; stroke-dasharray: 5 4; }
+.f-accent { fill: var(--c-tag-bg); stroke: $primary-color; stroke-width: 1.8; }
+.f-warn { fill: rgba(245, 158, 11, 0.12); stroke: #d97706; stroke-width: 1.5; }
+.f-text { fill: var(--c-text); font-size: 13px; }
+.f-strong { fill: var(--c-text-strong); font-size: 14px; font-weight: 700; }
+.f-small { fill: var(--c-text-muted); font-size: 11px; }
+.f-line { stroke: var(--c-text-muted); stroke-width: 1.4; fill: none; }
+.f-grid { stroke: var(--c-border); stroke-width: 1; fill: none; }
+.f-blue { fill: $primary-color; }
+.f-amber { fill: #d97706; }
+.f-green { fill: #16a34a; }
+.f-red { fill: #dc2626; }
+.f-blue-stroke { stroke: $primary-color; stroke-width: 2.2; fill: none; }
+.f-amber-stroke { stroke: #d97706; stroke-width: 2.2; fill: none; }
+.f-arrow { fill: var(--c-text-muted); }

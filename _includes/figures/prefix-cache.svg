@@ -1,0 +1,22 @@
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An append-only context keeps the prefix cached; editing the start of the prompt invalidates everything after it">
+<text x="20" y="28" class="f-strong">Append-only context</text>
+<text x="20" y="62" class="f-small">turn 1</text>
+<rect x="80" y="48" width="140" height="22" rx="4" class="f-amber"/>
+<text x="20" y="96" class="f-small">turn 2</text>
+<rect x="80" y="82" width="140" height="22" rx="4" class="f-blue"/>
+<rect x="222" y="82" width="90" height="22" rx="4" class="f-amber"/>
+<text x="20" y="130" class="f-small">turn 3</text>
+<rect x="80" y="116" width="232" height="22" rx="4" class="f-blue"/>
+<rect x="314" y="116" width="110" height="22" rx="4" class="f-amber"/>
+<text x="440" y="96" class="f-text">each turn re-reads the whole prefix,</text>
+<text x="440" y="114" class="f-text">but only the new tail is billed at full price</text>
+<text x="20" y="182" class="f-strong">Mutated prefix</text>
+<text x="20" y="216" class="f-small">turn 3′</text>
+<rect x="80" y="202" width="24" height="22" rx="4" class="f-red"/>
+<rect x="106" y="202" width="318" height="22" rx="4" class="f-amber"/>
+<text x="440" y="210" class="f-text">a timestamp or re-ordered tool list at the start</text>
+<text x="440" y="228" class="f-text">→ nothing after it can be served from cache</text>
+<rect x="80" y="244" width="14" height="10" class="f-blue"/><text x="100" y="253" class="f-small">cache hit</text>
+<rect x="170" y="244" width="14" height="10" class="f-amber"/><text x="190" y="253" class="f-small">new / uncached</text>
+<rect x="290" y="244" width="14" height="10" class="f-red"/><text x="310" y="253" class="f-small">changed prefix</text>
+</svg>
