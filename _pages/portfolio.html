@@ -8,9 +8,38 @@ author_profile: true
 ---
 
 {% include base_path %}
+{% assign items = site.portfolio | sort: "order" %}
 
+<p class="pf-lead">{% include localized.html
+  default="In the order I did them: research as a student, tools I built for myself since, and the AI stack I work with now."
+  zh="按时间顺序：学生时代的研究、之后为自己做的工具，以及现在工作中接触的 AI 技术。"
+  ja="時系列順に、学生時代の研究、その後に自分用に作ったツール、そして現在の仕事で扱っている AI 技術です。" %}</p>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+<section class="pf-section">
+  <h2 class="pf-heading">{% include localized.html default="Research" zh="研究" ja="研究" %} <span class="pf-heading__when">{% include localized.html default="Student years · 2023 – 2025" zh="学生时代 · 2023 – 2025" ja="学生時代 · 2023 – 2025" %}</span></h2>
+  {% for item in items %}{% if item.section == "research" and item.kind == "project" %}{% include portfolio-item.html item=item %}{% endif %}{% endfor %}
+  <h3 class="pf-subheading">{% include localized.html default="Reading notes for the paper" zh="论文相关的学习笔记" ja="論文のための学習メモ" %}</h3>
+  <ul class="pf-notes">
+  {% for item in items %}{% if item.section == "research" and item.kind == "note" %}{% include portfolio-item.html item=item %}{% endif %}{% endfor %}
+  </ul>
+</section>
 
+<section class="pf-section">
+  <h2 class="pf-heading">{% include localized.html default="Tools I built" zh="个人工具" ja="個人開発ツール" %} <span class="pf-heading__when">2026</span></h2>
+  <p class="pf-intro">{% include localized.html
+    default="Built for my own daily use with AI-assisted coding, then rebuilt as complete projects: tests, CI, documentation in three languages, and a live version you can open."
+    zh="为自己日常使用、借助 AI 辅助编程做出来的工具，之后重构为完整项目：有测试、CI、三语文档，并且可以直接在线使用。"
+    ja="日常で使うために AI 支援のコーディングで作り、その後テスト・CI・3 言語のドキュメントを備えた完全なプロジェクトとして作り直したツールです。すぐに開いて使えます。" %}</p>
+  <div class="pf-grid">
+  {% for item in items %}{% if item.section == "tools" %}{% include portfolio-item.html item=item %}{% endif %}{% endfor %}
+  </div>
+</section>
+
+<section class="pf-section">
+  <h2 class="pf-heading">{% include localized.html default="Now: NVIDIA NIM, RAG and private AI" zh="现在：NVIDIA NIM、RAG 与私有化 AI" ja="現在：NVIDIA NIM、RAG、プライベート AI" %}</h2>
+  <p class="pf-intro">{% include localized.html
+    default="What I work with in my current job — deploying generative AI on your own infrastructure — and the material I rely on."
+    zh="现在工作中接触的方向——在自有基础设施上部署生成式 AI——以及我常用的参考资料。"
+    ja="現在の仕事で扱っている分野（自社インフラでの生成 AI の運用）と、参考にしている資料です。" %}</p>
+  {% for item in items %}{% if item.section == "work" %}{% include portfolio-item.html item=item %}{% endif %}{% endfor %}
+</section>

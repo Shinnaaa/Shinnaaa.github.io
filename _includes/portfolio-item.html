@@ -1,0 +1,31 @@
+{%- comment -%}
+  One portfolio entry. kind: project (card with links and tags), note (one line), link (title + description).
+  Usage: {% include portfolio-item.html item=item %}
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- capture title -%}{% include localized.html default=item.title zh=item.title_zh en=item.title_en ja=item.title_ja %}{%- endcapture -%}
+{%- capture desc -%}{% include localized.html default=item.desc_en zh=item.desc_zh en=item.desc_en ja=item.desc_ja %}{%- endcapture -%}
+{%- if item.kind == "note" -%}
+<li class="pf-note"><a href="{{ item.link }}">{{ item.title }}</a> <span class="pf-period">{{ item.period }}</span></li>
+{%- elsif item.kind == "link" -%}
+<article class="pf-link reveal">
+  <h3 class="pf-link__title"><a href="{{ item.link }}">{{ title }}</a></h3>
+  {%- if item.desc_en %}<p class="pf-link__desc">{{ desc }}</p>{% endif %}
+</article>
+{%- else -%}
+<article class="pf-card reveal">
+  <header class="pf-card__head">
+    <h3 class="pf-card__title"><a href="{{ item.demo | default: item.repo | default: item.paper }}">{{ title }}</a></h3>
+    {%- if item.period %}<span class="pf-period">{{ item.period }}</span>{% endif %}
+  </header>
+  <p class="pf-card__desc">{{ desc }}</p>
+  <div class="pf-card__links">
+    {%- if item.paper %}<a href="{{ item.paper }}"><i class="fas fa-file-alt" aria-hidden="true"></i> {% include localized.html default="Paper" zh="论文" ja="論文" %}</a>{% endif %}
+    {%- if item.repo %}<a href="{{ item.repo }}"><i class="fab fa-github" aria-hidden="true"></i> {% include localized.html default="Code" zh="代码" ja="コード" %}</a>{% endif %}
+    {%- if item.demo %}<a href="{{ item.demo }}"><i class="fas fa-external-link-alt" aria-hidden="true"></i> {% include localized.html default="Live" zh="在线使用" ja="デモ" %}</a>{% endif %}
+  </div>
+  {%- if item.tags.size > 0 %}
+  <div class="archive__item-tags">{% for tag in item.tags %}<span class="archive__tag-badge">{{ tag }}</span>{% endfor %}</div>
+  {%- endif %}
+</article>
+{%- endif -%}
