@@ -1,7 +1,7 @@
 /* ==========================================================================
    LANGUAGE SWITCHER
    The active language is <html data-lang="zh|en|ja">, set in _includes/head.html
-   before first paint. Everything below keys off that attribute, so the page
+   before first paint (English unless the visitor picked another). Everything below keys off that attribute, so the page
    renders in the right language with no JS-driven flash.
    ========================================================================== */
 
@@ -57,8 +57,8 @@
   }
 }
 
-html:not([data-lang="en"]):not([data-lang="ja"]) .lang-btn[data-lang="zh"],
-html[data-lang="en"] .lang-btn[data-lang="en"],
+html[data-lang="zh"] .lang-btn[data-lang="zh"],
+html:not([data-lang="zh"]):not([data-lang="ja"]) .lang-btn[data-lang="en"],
 html[data-lang="ja"] .lang-btn[data-lang="ja"] {
   background: $primary-color;
   color: #fff;
@@ -74,8 +74,8 @@ html[data-lang="ja"] .lang-btn[data-lang="ja"] {
    once data-lang is set, CSS takes over. */
 html[data-lang] div.lang-block[hidden] { display: block; }
 
-html:not([data-lang="en"]):not([data-lang="ja"]) .lang-block:not([lang="zh"]),
-html[data-lang="en"] .lang-block:not([lang="en"]),
+html[data-lang="zh"] .lang-block:not([lang="zh"]),
+html:not([data-lang="zh"]):not([data-lang="ja"]) .lang-block:not([lang="en"]),
 html[data-lang="ja"] .lang-block:not([lang="ja"]) {
   display: none !important;
 }

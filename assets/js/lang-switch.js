@@ -26,7 +26,7 @@
   }
 
   function init() {
-    applyLang(root.getAttribute('data-lang') || 'zh');
+    applyLang(root.getAttribute('data-lang') || 'en');
 
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('.lang-btn');

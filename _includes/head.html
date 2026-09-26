@@ -14,9 +14,9 @@
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   (function () {
-    var lang = 'zh';
+    var lang = 'en';
     try { lang = localStorage.getItem('lang') || lang; } catch (e) {}
-    if (['zh', 'en', 'ja'].indexOf(lang) === -1) lang = 'zh';
+    if (['zh', 'en', 'ja'].indexOf(lang) === -1) lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('lang', { zh: 'zh-CN', en: 'en', ja: 'ja' }[lang]);
   })();

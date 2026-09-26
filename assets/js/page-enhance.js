@@ -46,7 +46,7 @@
     var headings = visibleHeadings(content);
     if (headings.length < 4) return;
 
-    var lang = document.documentElement.getAttribute('data-lang') || 'zh';
+    var lang = document.documentElement.getAttribute('data-lang') || 'en';
     var nav = document.createElement('nav');
     nav.className = 'page-toc';
     nav.setAttribute('aria-label', TOC_TITLE[lang]);
